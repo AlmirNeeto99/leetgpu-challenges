@@ -20,7 +20,7 @@ int main() {
     std::vector<float> b(N);
     std::vector<float> c(N);
 
-    std::cout << "-> Randomization A and B" << std::endl;
+    std::cout << "-> Randomizing A and B" << std::endl;
 
     for (unsigned int i = 0; i < N; i++) {
         a[i] = (float)rand() / RAND_MAX;
