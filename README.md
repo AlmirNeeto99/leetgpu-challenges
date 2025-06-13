@@ -5,6 +5,14 @@ The main objective is learning GPU programming using available languages and fra
 
 ---
 
+## Development
+
+For comparing the performance between serial and parallel version, each execution time will be measured - only the time to execute the code - and added here.
+
+Each serial version will be coded using C++ and each parallel version will be coded using CUDA.
+
+---
+
 ## Problems
 
 There are 34 challenges in LeetGPU divided into three difficulties:
@@ -19,8 +27,12 @@ Each solution we be added here after each attempt.
 
 ### Easy
 
-- [x] Vector Addition - serial and parallel
+- [x] Vector Addition
+    - Serial: X ms
+    - Parallel: X ms
 - [ ] Matrix Multiplication
+    - Serial: TO BE DONE
+    - Parallel: TO BE DONE
 
 ### Medium
 
