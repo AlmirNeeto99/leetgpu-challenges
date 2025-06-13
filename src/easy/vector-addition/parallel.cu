@@ -51,6 +51,9 @@ int main() {
     vector_addition<<<numberOfBlocks, threadsPerBlock>>>(d_a, d_b, d_c, N);
     cudaEventElapsedTime(&elapsed, start, end);
 
+    cudaEventDestroy(start);
+    cudaEventDestroy(end);
+
     std::cout << "-> Elapsed: " << elapsed << std::endl;
 
     cudaMemcpy(c.data(), d_c, size, cudaMemcpyDeviceToHost);
