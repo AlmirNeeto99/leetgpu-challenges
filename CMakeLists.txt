@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_CUDA_ARCHITECTURES 75 80 86)
+
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(INCLUDE_DIRECTORIES include)
 
@@ -41,6 +43,24 @@ foreach(problem IN LISTS PROBLEMS_FOLDER)
         get_filename_component(EXEC_NAME ${SRC} NAME_WE)
         set(BINARY_NAME "${PROBLEM_NAME}-${EXEC_NAME}")
         message(STATUS "Adding build for ${BINARY_NAME}")
+        add_executable(${BINARY_NAME} ${SRC_DIR}/${problem}/${SRC})
+        target_include_directories(${BINARY_NAME} PRIVATE ${INCLUDE_DIRECTORIES})
+    endforeach()
+endforeach()
+
+foreach(problem IN LISTS PROBLEMS_FOLDER)
+    set(SOURCES "")
+    file(GLOB SOURCES RELATIVE ${SRC_DIR}/${problem} "${SRC_DIR}/${problem}/*.cu")
+
+    string(REPLACE "/" ";" PROBLEM_PARTS "${problem}")
+
+    list(GET PROBLEM_PARTS 1 PROBLEM_NAME)
+    message(STATUS "Adding CUDA rule for problem: ${PROBLEM_NAME}")
+    
+    foreach(SRC IN LISTS SOURCES)
+        get_filename_component(EXEC_NAME ${SRC} NAME_WE)
+        set(BINARY_NAME "${PROBLEM_NAME}-${EXEC_NAME}")
+        message(STATUS "Adding CUDA build for ${BINARY_NAME}")
         add_executable(${BINARY_NAME} ${SRC_DIR}/${problem}/${SRC})
         target_include_directories(${BINARY_NAME} PRIVATE ${INCLUDE_DIRECTORIES})
     endforeach()
