@@ -13,7 +13,7 @@ There are 34 challenges in LeetGPU divided into three difficulties:
 - Medium
 - Hard
 
-Each solution we be added here after every attempt.
+Each solution we be added here after each attempt.
 
 ---
 
