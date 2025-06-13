@@ -34,7 +34,7 @@ int main() {
     cudaMemcpy(d_b, b.data(), size, cudaMemcpyHostToDevice);
 
     int threadsPerBlock = 256;
-    int numberOfBlocks = (N / threadsPerBlock) + 1;
+    int numberOfBlocks = (N + threadsPerBlock - 1) / threadsPerBlock;
 
     std::cout << "-> Running with " << numberOfBlocks << " blocks!"
               << std::endl;
