@@ -69,9 +69,15 @@ int main() {
     cudaFree(d_c);
 
     std::cout << "==========" << std::endl;
+    std::cout << "Searching for differences..." << std::endl;
 
-    for (int i = 0; i < 10; i++) {
-        std::cout << "-> Result: " << c[i] << std::endl;
+    float check, difference;
+    for (int i = 0; i < N; i++) {
+        check = a[i] + b[i];
+        difference = abs(c[i] - check);
+        if (difference > 0.0f) {
+            std::cout << "-> Found difference!" << std::endl;
+        }
     }
 
     return 0;
