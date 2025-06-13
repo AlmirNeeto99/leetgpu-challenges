@@ -11,7 +11,7 @@ __global__ void vector_addition(float *A, float *B, float *C, int N) {
 int main() {
     srand(time(0));
 
-    int N = 50000000;
+    int N = 100000000;
 
     size_t size = sizeof(float) * N;
 
