@@ -28,8 +28,8 @@ Each solution we be added here after each attempt.
 ### Easy
 
 - [x] Vector Addition
-    - Serial: X ms
-    - Parallel: X ms
+    - Serial: 843 ms
+    - Parallel: 6.74512 ms
 - [ ] Matrix Multiplication
     - Serial: TO BE DONE
     - Parallel: TO BE DONE
