@@ -19,7 +19,8 @@ Each solution we be added here after every attempt.
 
 ### Easy
 
-TODO
+- [x] Vector Addition - serial and parallel
+- [ ] Matrix Multiplication
 
 ### Medium
 
