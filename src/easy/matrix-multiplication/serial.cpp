@@ -19,7 +19,7 @@ int main() {
     int M1 = 4, N1 = 4;
     int M2 = 4, N2 = 4;
 
-    int M3 = N1, N3 = M2;
+    int M3 = M1, N3 = N2;
 
     vector<vector<float>> A(M1);
     vector<vector<float>> B(M2);
