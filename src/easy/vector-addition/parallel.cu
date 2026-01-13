@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-__global__ void vector_addition(float *A, float *B, float *C, int N) {
+__global__ void vector_addition(float* A, float* B, float* C, int N) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < N) {
         C[i] = A[i] + B[i];
@@ -9,7 +9,7 @@ __global__ void vector_addition(float *A, float *B, float *C, int N) {
 }
 
 int main() {
-    srand(time(0));
+    srand(99);
 
     int N = 100000000;
 
@@ -18,6 +18,8 @@ int main() {
     std::vector<float> a(N);
     std::vector<float> b(N);
     std::vector<float> c(N);
+
+    std::cout << "-> Randomizing A and B" << std::endl;
 
     for (int i = 0; i < N; i++) {
         a[i] = (float)rand() / RAND_MAX;

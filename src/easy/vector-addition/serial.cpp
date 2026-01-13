@@ -12,7 +12,7 @@ void vector_addition(std::vector<float> a, std::vector<float> b,
 }
 
 int main() {
-    srand(time(0));
+    srand(99);
 
     unsigned int N = 100000000;
 
