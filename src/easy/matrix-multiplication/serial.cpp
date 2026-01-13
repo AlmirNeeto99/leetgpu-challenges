@@ -6,7 +6,7 @@ using namespace std;
 void matmul(vector<vector<float>> a, vector<vector<float>> b,
             vector<vector<float>> c) {}
 
-void fill(vector<vector<float>> &matrix, int M, int N) {
+void fill(vector<vector<float>>& matrix, int M, int N) {
     for (int i = 0; i < M; i++) {
         matrix[i] = vector<float>(N);
         for (int j = 0; j < N; j++) {
@@ -16,6 +16,8 @@ void fill(vector<vector<float>> &matrix, int M, int N) {
 }
 
 int main() {
+    srand(99);
+
     int M1 = 4, N1 = 4;
     int M2 = 4, N2 = 4;
 
