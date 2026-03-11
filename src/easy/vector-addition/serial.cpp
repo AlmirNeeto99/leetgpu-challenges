@@ -23,8 +23,8 @@ int main() {
     std::cout << "-> Randomizing A and B" << std::endl;
 
     for (unsigned int i = 0; i < N; i++) {
-        a[i] = (float)rand() / RAND_MAX;
-        b[i] = (float)rand() / RAND_MAX;
+        a[i] = rand() / (float)RAND_MAX;
+        b[i] = rand() / (float)RAND_MAX;
     }
 
     std::cout << "-> Adding vectors A and B into C" << std::endl;
