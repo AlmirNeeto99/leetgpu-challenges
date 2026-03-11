@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(leetgpu-challenges LANGUAGES CXX CUDA)
+project(leetgpu-challenges LANGUAGES CXX)
+
+find_package(CUDA)
+if(CUDA_FOUND)
+    enable_language(CUDA)
+    message(STATUS "CUDA found: ${CUDA_VERSION}")
+else()
+    message(WARNING "CUDA not found. CUDA problems will not be built.")
+endif()
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
