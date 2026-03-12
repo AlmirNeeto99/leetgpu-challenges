@@ -2,6 +2,7 @@
 #include <string>
 #include <sycl/sycl.hpp>
 #include <utils.hpp>
+#include <vector>
 
 using namespace sycl;
 
@@ -12,30 +13,34 @@ int main() {
 
     const unsigned int N = 4096;
 
-    float* a = malloc_shared<float>(N, q);
-    float* b = malloc_shared<float>(N, q);
-    float* c = malloc_shared<float>(N, q);
+    std::vector<float> a(N, 1.0f);
+    std::vector<float> b(N, 2.0f);
+    std::vector<float> c(N, .0f);
 
-    for (int i = 0; i < N; i++) {
-        a[i] = static_cast<float>(i);
-        b[i] = static_cast<float>(i * 2);
+    {
+        range<1> r(N);
+        buffer<float> a_buf(a.data(), r);
+        buffer<float> b_buf(b.data(), r);
+        buffer<float> c_buf(c.data(), r);
+
+        q.submit([&](handler& h) {
+            auto a_acc = a_buf.get_access<access_mode::read>(h);
+            auto b_acc = b_buf.get_access<access_mode::read>(h);
+            auto c_acc = c_buf.get_access<access_mode::write>(h);
+
+            h.parallel_for(r, [=](id<1> i) { c_acc[i] = a_acc[i] + b_acc[i]; });
+        });
     }
-
-    q.parallel_for(range<1>(N), [=](id<1> i) { c[i] = a[i] + b[i]; }).wait();
 
     bool success = true;
     for (int i = 0; i < N; i++) {
-        if (c[i] != i + (i * 2)) {
+        if (c[i] != 3.0f) {
             success = false;
             break;
         }
     }
 
     std::cout << (success ? "Success!" : "Verification Failed.") << "\n";
-
-    free(a, q);
-    free(b, q);
-    free(c, q);
 
     return 0;
 }
