@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <iostream>
 #include <time.hpp>
+#include <utils.hpp>
 #include <vector>
 
 void vector_addition(std::vector<float> a, std::vector<float> b,
@@ -23,8 +24,8 @@ int main() {
     std::cout << "-> Randomizing A and B" << std::endl;
 
     for (unsigned int i = 0; i < N; i++) {
-        a[i] = rand() / (float)RAND_MAX;
-        b[i] = rand() / (float)RAND_MAX;
+        a[i] = myRand();
+        b[i] = myRand();
     }
 
     std::cout << "-> Adding vectors A and B into C" << std::endl;
