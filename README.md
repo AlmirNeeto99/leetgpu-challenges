@@ -33,7 +33,7 @@ Each solution we be added here after each attempt.
 - [x] Vector Addition
   - Serial: 843 ms
   - CUDA: 6.74512 ms
-  - SYCL: 379 ms
+  - SYCL: 44.2114 ms
 - [ ] Matrix Multiplication
   - Serial: TO BE DONE
   - CUDA: TO BE DONE
