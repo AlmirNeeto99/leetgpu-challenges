@@ -8,7 +8,7 @@
 using namespace sycl;
 
 int main() {
-    queue q;
+    queue q(default_selector_v, {property::queue::enable_profiling()});
     device device = q.get_device();
     printDeviceInfo(device);
 
@@ -24,17 +24,16 @@ int main() {
         buffer<float> b_buf(b.data(), r);
         buffer<float> c_buf(c.data(), r);
 
-        auto start = std::chrono::high_resolution_clock::now();
-
-        q.submit([&](handler& h) {
-            auto a_acc = a_buf.get_access<access_mode::read>(h);
-            auto b_acc = b_buf.get_access<access_mode::read>(h);
-            auto c_acc = c_buf.get_access<access_mode::write>(h);
+        event event = q.submit([&](handler& h) {
+            accessor a_acc = a_buf.get_access<access_mode::read>(h);
+            accessor b_acc = b_buf.get_access<access_mode::read>(h);
+            accessor c_acc = c_buf.get_access<access_mode::write>(h);
 
             h.parallel_for(r, [=](id<1> i) { c_acc[i] = a_acc[i] + b_acc[i]; });
         });
-        auto end = std::chrono::high_resolution_clock::now();
-        std::cout << "-> Duration: " << getElapsedTime(start, end) << " ms"
+        event.wait();
+
+        std::cout << "-> Duration: " << syclElapsedTime(event) << " ms"
                   << std::endl;
     }
 
