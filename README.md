@@ -28,11 +28,13 @@ Each solution we be added here after each attempt.
 ### Easy
 
 - [x] Vector Addition
-    - Serial: 843 ms
-    - Parallel: 6.74512 ms
+  - Serial: 843 ms
+  - CUDA: 6.74512 ms
+  - SYCL: 379 ms
 - [ ] Matrix Multiplication
-    - Serial: TO BE DONE
-    - Parallel: TO BE DONE
+  - Serial: TO BE DONE
+  - CUDA: TO BE DONE
+  - SYCL: TO BE DONE
 
 ### Medium
 
