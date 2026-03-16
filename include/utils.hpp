@@ -20,3 +20,9 @@ void printDeviceInfo(device device) {
                   << std::endl;
     }
 }
+
+float myRand() {
+    size_t max = RAND_MAX;
+    size_t half = (size_t)max / 2;
+    return (float)((rand() - half) / max);
+}
