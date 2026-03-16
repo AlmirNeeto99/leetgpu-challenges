@@ -12,7 +12,7 @@ int main() {
     device device = q.get_device();
     printDeviceInfo(device);
 
-    const unsigned int N = 4096;
+    const unsigned int N = 100000000;
 
     std::vector<float> a(N, 1.0f);
     std::vector<float> b(N, 2.0f);
