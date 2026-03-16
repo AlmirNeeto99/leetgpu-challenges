@@ -38,6 +38,10 @@ Each solution we be added here after each attempt.
   - Serial: TO BE DONE
   - CUDA: TO BE DONE
   - SYCL: TO BE DONE
+- [ ] Matrix Transpose
+  - Serial: TO BE DONE
+  - CUDA: TO BE DONE
+  - SYCL: TO BE DONE
 
 ### Medium
 
