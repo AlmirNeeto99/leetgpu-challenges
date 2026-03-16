@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sycl/sycl.hpp>
+#include <time.hpp>
 #include <utils.hpp>
 #include <vector>
 
@@ -17,6 +18,8 @@ int main() {
     std::vector<float> b(N, 2.0f);
     std::vector<float> c(N, .0f);
 
+    auto start = std::chrono::high_resolution_clock::now();
+
     {
         range<1> r(N);
         buffer<float> a_buf(a.data(), r);
@@ -31,6 +34,9 @@ int main() {
             h.parallel_for(r, [=](id<1> i) { c_acc[i] = a_acc[i] + b_acc[i]; });
         });
     }
+    auto end = std::chrono::high_resolution_clock::now();
+    std::cout << "-> Duration: " << getElapsedTime(start, end) << " ms"
+              << std::endl;
 
     bool success = true;
     for (int i = 0; i < N; i++) {
