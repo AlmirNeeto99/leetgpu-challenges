@@ -57,4 +57,4 @@ You can check my LeetGPU profile [here](https://leetgpu.com/profile?display_name
 
 ## Templates
 
-Into `templates` folder there are templates for basic cumbersome CUDA code.
+Into `templates` folder there are templates for basic cumbersome code.
