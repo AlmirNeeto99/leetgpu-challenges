@@ -1,15 +1,18 @@
 # LeetGPU
 
 This repository contains the solutions for the **LeetGPU challenges**.
-The main objective is learning GPU programming using available languages and framework, but it will be focused in `CUDA`.
+The main objective is learning GPU / HPC programming using available languages and frameworks.
+
+For now the following languages will be used:
+
+- CUDA
+- SYCL
 
 ---
 
 ## Development
 
-For comparing the performance between serial and parallel version, each execution time will be measured - only the time to execute the code - and added here.
-
-Each serial version will be coded using C++ and each parallel version will be coded using CUDA.
+For comparing the performance between serial and parallel versions, each execution time will be measured - only the time to execute the kernel - and added here.
 
 ---
 
