@@ -21,8 +21,4 @@ void printDeviceInfo(device device) {
     }
 }
 
-float myRand() {
-    size_t max = RAND_MAX;
-    size_t half = (size_t)max / 2;
-    return (float)((rand() - half) / max);
-}
+float myRand() { return (rand() - (RAND_MAX / 2)) / (float)RAND_MAX; }
