@@ -46,6 +46,10 @@ Each solution we be added here after each attempt.
   - Serial: 326 ms
   - CUDA: TO BE DONE
   - SYCL: 24.1397 ms
+- [ ] Leaky ReLU
+  - Serial: 1001 ms
+  - CUDA: TO BE DONE
+  - SYCL: TO BE DONE
 
 ### Medium
 
