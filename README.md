@@ -37,7 +37,7 @@ Each solution we be added here after each attempt.
 - [ ] Matrix Multiplication
   - Serial: TO BE DONE
   - CUDA: TO BE DONE
-  - SYCL: TO BE DONE
+  - SYCL: 24.1397 ms
 - [ ] Matrix Transpose
   - Serial: TO BE DONE
   - CUDA: TO BE DONE
