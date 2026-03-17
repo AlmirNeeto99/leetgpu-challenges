@@ -20,6 +20,8 @@ int main() {
     for (unsigned int i = 0; i < N; i++) {
         a[i] = myRand();
     }
+    a[0] = -1.f;  // Make sure at least one element is negative to fail if code
+                  // is wrong
 
     {
         range<1> r(N);
