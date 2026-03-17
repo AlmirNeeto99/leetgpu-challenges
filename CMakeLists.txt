@@ -17,7 +17,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_COMPILER icpx)
 message(WARNING "Using Intel oneAPI compiler, remember to setvars")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsycl -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsycl")
 
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(INCLUDE_DIRECTORIES include)
@@ -55,6 +55,10 @@ foreach(problem IN LISTS PROBLEMS_FOLDER)
         message(STATUS "Adding build for ${BINARY_NAME}")
         add_executable(${BINARY_NAME} ${SRC_DIR}/${problem}/${SRC})
         target_include_directories(${BINARY_NAME} PRIVATE ${INCLUDE_DIRECTORIES})
+
+        if(EXEC_NAME STREQUAL "serial")
+            target_compile_options(${BINARY_NAME} PRIVATE -O0)
+        endif()
     endforeach()
 endforeach()
 
