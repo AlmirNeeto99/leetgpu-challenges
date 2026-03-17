@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utils.hpp>
 #include <vector>
 
 using namespace std;
@@ -10,7 +11,7 @@ void fill(vector<vector<float>>& matrix, int M, int N) {
     for (int i = 0; i < M; i++) {
         matrix[i] = vector<float>(N);
         for (int j = 0; j < N; j++) {
-            matrix[i][j] = rand() / (float)RAND_MAX;
+            matrix[i][j] = myRand();
         }
     }
 }
